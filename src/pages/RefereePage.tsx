@@ -6,7 +6,6 @@ import {
 } from "lucide-react";
 import { Match, Player } from "../types.js";
 import { TournamentHub } from "../components/TournamentHub.js";
-import tournamentLogo from "../assets/logo.jpeg";
 
 export const RefereePage: React.FC = () => {
   const [refereeToken, setRefereeToken] = useState(localStorage.getItem("ref_token") || "");
@@ -160,7 +159,7 @@ export const RefereePage: React.FC = () => {
         <div className="absolute inset-0 bg-[radial-gradient(#155e15_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-20" />
         <div className="sm:mx-auto sm:w-full sm:max-w-md relative z-10 space-y-6">
           <div className="text-center space-y-3">
-            <img src={tournamentLogo} className="h-16 w-16 mx-auto rounded-full border-2 border-[#FFD700] mb-4" />
+            <img src="/smartCityImage.jpg" className="h-16 w-16 mx-auto rounded-full border-2 border-[#FFD700] mb-4" />
             <h2 className="font-bebas text-5xl tracking-widest text-[#FFD700]">REFEREE PORTAL</h2>
             <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Official Competition Match Official Entry</p>
           </div>
@@ -193,7 +192,7 @@ export const RefereePage: React.FC = () => {
       <nav className="green-mesh border-b-4 border-[#FFD700] py-3 px-4 sticky top-0 z-30 shadow-lg text-white">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src={tournamentLogo} className="h-9 w-9 rounded-full border border-[#FFD700]" />
+            <img src="/smartCityImage.jpg" className="h-9 w-9 rounded-full border border-[#FFD700]" />
             <h1 className="font-bebas text-lg tracking-wider text-[#FFD700] uppercase">Official Match Desk: {refereeName}</h1>
           </div>
           <button onClick={handleLogout} className="p-2 bg-red-600 rounded-lg text-white"><LogOut className="h-4 w-4" /></button>

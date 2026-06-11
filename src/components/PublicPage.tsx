@@ -4,7 +4,6 @@ import { Trophy, Calendar, Users, Shield, TrendingUp, Info } from "lucide-react"
 import { TournamentHub } from "./TournamentHub";
 import { LiveMarquee } from "./LiveMarquee";
 import { Match } from "../types.js";
-import tournamentLogo from "../assets/logo.jpeg";
 
 export const PublicPage: React.FC = () => { 
   const [activeTab, setActiveTab] = useState<"tournament" | "fixtures" | "results">("tournament");
@@ -34,7 +33,7 @@ export const PublicPage: React.FC = () => {
       <nav className="green-mesh border-b-4 border-[#FFD700] text-white py-4 px-4 sticky top-0 z-30 shadow-md">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
           <div className="flex items-center gap-2 sm:gap-3">
-            <img src={tournamentLogo} alt="SmartCity Logo" className="h-10 w-10 sm:h-12 sm:w-12 rounded-full border-2 border-[#FFD700] bg-white object-cover shadow-sm" />
+            <img src="/smartCityImage.jpg" alt="SmartCity Logo" className="h-10 w-10 sm:h-12 sm:w-12 rounded-full border-2 border-[#FFD700] bg-white object-cover shadow-sm" />
             <div className="block">
               <h1 className="font-bebas text-base sm:text-2xl tracking-wider text-[#FFD700] leading-none uppercase">
                 SmartCity U-17 CUP
@@ -117,7 +116,7 @@ export const PublicPage: React.FC = () => {
 
       {/* FOOTER ACCENT */}
       <footer className="mt-20 py-10 text-center border-t border-slate-200">
-        <img src={tournamentLogo} className="h-8 w-8 mx-auto grayscale opacity-20 mb-4" alt="footer logo" />
+        <img src="/smartCityImage.jpg" className="h-8 w-8 mx-auto grayscale opacity-20 mb-4" alt="footer logo" />
         <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.2em]">SmartCity U-17 Competition Registry</p>
       </footer>
     </div>

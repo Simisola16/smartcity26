@@ -4,7 +4,6 @@ import { Users, UserCheck, Shield, Upload, Trash2, ArrowRight, LogIn } from "luc
 import { useRegistration } from "../context/RegistrationContext.js";
 import { PlayerForm } from "../components/PlayerForm.js";
 import { OfficialForm } from "../components/OfficialForm.js";
-import tournamentLogo from "../assets/logo.jpeg";
 
 export const RegistrationPage: React.FC = () => {
   const navigate = useNavigate();
@@ -103,7 +102,7 @@ export const RegistrationPage: React.FC = () => {
       <div className="green-mesh border-b-4 border-[#FFD700] text-white py-12 px-4 shadow-md text-center relative overflow-hidden animate-fade-in">
         <div className="absolute inset-0 bg-black/10" />
         <div className="max-w-4xl mx-auto relative z-10 space-y-3 flex flex-col items-center">
-          <img src={tournamentLogo} alt="SmartCity U17 Logo" className="h-24 w-24 object-contain rounded-full shadow-lg border-2 border-[#FFD700] mb-2 bg-white" />
+          <img src="/smartCityImage.jpg" alt="SmartCity U17 Logo" className="h-24 w-24 object-contain rounded-full shadow-lg border-2 border-[#FFD700] mb-2 bg-white" />
           <span className="font-bebas text-xs sm:text-base tracking-widest text-[#FFD700] bg-white/10 px-3.5 py-1 rounded-full uppercase border border-white/5">
             Official Portal
           </span>

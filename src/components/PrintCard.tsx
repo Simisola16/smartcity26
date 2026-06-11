@@ -1,6 +1,5 @@
 import React from "react";
 import { Player, Official, Team } from "../types.js";
-import tournamentLogo from "../assets/logo.jpeg";
 
 interface PrintCardProps {
   person: Player | Official | any;
@@ -48,7 +47,7 @@ export const PrintCard: React.FC<PrintCardProps> = ({ person, type, team }) => {
         <div 
           className="absolute inset-0 opacity-[0.013] pointer-events-none -z-10 mix-blend-multiply" 
           style={{ 
-            backgroundImage: `url(${tournamentLogo})`, 
+            backgroundImage: `url(/smartCityImage.jpg)`, 
             backgroundSize: "15mm 15mm", 
             backgroundRepeat: "repeat",
             backgroundPosition: "center"

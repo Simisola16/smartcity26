@@ -8,7 +8,6 @@ import { OfficialForm } from "../components/OfficialForm.js";
 import { TournamentHub } from "../components/TournamentHub.js";
 import { LiveMarquee } from "../components/LiveMarquee.js";
 import { Match, Player } from "../types.js";
-import tournamentLogo from "../assets/logo.jpeg";
 
 const FORMATIONS: Record<string, { def: number; mid: number; fwd: number }> = {
   "4-4-2": { def: 4, mid: 4, fwd: 2 },
@@ -581,7 +580,7 @@ export const ClubPortal: React.FC = () => {
       <nav className="green-mesh border-b-4 border-[#FFD700] text-white py-4 px-4 sticky top-0 z-30 shadow-md no-print">
         <div className="max-w-6xl mx-auto flex items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <img src={tournamentLogo} alt="SmartCity U17" className="h-8 w-8 rounded-full border border-[#FFD700] bg-white object-cover shadow-sm" />
+            <img src="/smartCityImage.jpg" alt="SmartCity U17" className="h-8 w-8 rounded-full border border-[#FFD700] bg-white object-cover shadow-sm" />
             <div>
               <h1 className="font-bebas text-lg tracking-wider text-[#FFD700] leading-none uppercase">
                 SmartCity U-17 CUP PORTAL

@@ -13,7 +13,6 @@ import { LiveMarquee } from "../components/LiveMarquee.js";
 import { TournamentManager } from "../components/TournamentManager.js";
 import { Modal } from "../components/Modal.js";
 import { Team, Player, Official, Match } from "../types.js";
-import tournamentLogo from "../assets/logo.jpeg";
 
 export const AdminPage: React.FC = () => {
   const { authToken, isAdmin, loginAdmin, logout } = useRegistration();
@@ -243,7 +242,7 @@ export const AdminPage: React.FC = () => {
         <div className="sm:mx-auto sm:w-full sm:max-w-md relative z-10 space-y-6">
           <div className="text-center">
             <div className="flex justify-center mb-6">
-              <img src={tournamentLogo} alt="SmartCity U17" className="h-20 w-20 rounded-full border-4 border-[#F59E0B] object-cover shadow-[0_0_30px_rgba(245,158,11,0.3)]" />
+              <img src="/smartCityImage.jpg" alt="SmartCity U17" className="h-20 w-20 rounded-full border-4 border-[#F59E0B] object-cover shadow-[0_0_30px_rgba(245,158,11,0.3)]" />
             </div>
             <h2 className="font-bebas text-5xl tracking-widest text-white drop-shadow-md">ADMIN PORTAL</h2>
             <p className="mt-2 text-xs text-[#F59E0B] font-bold uppercase tracking-[0.2em]">Master Ledger Workspace</p>
@@ -570,7 +569,7 @@ export const AdminPage: React.FC = () => {
       {/* MOBILE HEADER */}
       <div className="md:hidden bg-[#071510] text-white p-4 flex items-center justify-between sticky top-0 z-40 shadow-lg border-b border-emerald-900">
         <div className="flex items-center gap-3">
-          <img src={tournamentLogo} alt="Logo" className="w-8 h-8 rounded-full border-2 border-[#F59E0B]" />
+          <img src="/smartCityImage.jpg" alt="Logo" className="w-8 h-8 rounded-full border-2 border-[#F59E0B]" />
           <h1 className="font-bebas text-xl text-[#F59E0B] tracking-widest">Admin Portal</h1>
         </div>
         <button onClick={() => setSidebarOpen(!sidebarOpen)} className="p-2 bg-emerald-900 rounded-lg text-emerald-400">
@@ -583,7 +582,7 @@ export const AdminPage: React.FC = () => {
 
         {/* Sidebar Logo */}
         <div className="p-6 flex items-center gap-4 border-b border-emerald-900/50">
-          <img src={tournamentLogo} alt="Logo" className="w-12 h-12 rounded-full border-2 border-[#F59E0B] shadow-[0_0_15px_rgba(245,158,11,0.2)]" />
+          <img src="/smartCityImage.jpg" alt="Logo" className="w-12 h-12 rounded-full border-2 border-[#F59E0B] shadow-[0_0_15px_rgba(245,158,11,0.2)]" />
           <div>
             <h1 className="font-bebas text-2xl text-[#F59E0B] tracking-wider leading-none">SmartCity</h1>
             <p className="text-[9px] text-emerald-400 font-bold uppercase tracking-[0.2em] mt-1">Admin Portal</p>
@@ -640,7 +639,7 @@ export const AdminPage: React.FC = () => {
         <header className="hidden md:flex items-center justify-between p-4 bg-[#071510] text-white sticky top-0 z-20 border-b border-emerald-900/50 shadow-lg">
           {/* Left side: Logo and titles */}
           <div className="flex items-center gap-3">
-            <img src={tournamentLogo} alt="Logo" className="w-10 h-10 rounded-full border-2 border-[#F59E0B]" />
+            <img src="/smartCityImage.jpg" alt="Logo" className="w-10 h-10 rounded-full border-2 border-[#F59E0B]" />
             <div className="flex flex-col">
               <h1 className="text-xl font-bebas text-[#F59E0B] tracking-widest">{navItems.find(i => i.id === activeTab)?.label || "Dashboard"}</h1>
               <p className="text-xs text-[#F59E0B] font-bold uppercase tracking-[0.2em]">Master Ledger Workspace</p>
