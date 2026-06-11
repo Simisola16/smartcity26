@@ -189,9 +189,9 @@ export const TournamentHub: React.FC<TournamentHubProps> = ({ authToken, activeT
         ? { Authorization: `Bearer ${authToken}` } 
         : {};
       const [standingsRes, matchesRes, statsRes] = await Promise.all([
-        fetch(`${import.meta.env.VITE_API_URL || ""}/api/standings`, { headers }),
-        fetch(`${import.meta.env.VITE_API_URL || ""}/api/matches`, { headers }),
-        fetch(`${import.meta.env.VITE_API_URL || ""}/api/stats`, { headers })
+        fetch(`${import.meta.env.VITE_BACKEND_URL || ""}/api/standings`, { headers }),
+        fetch(`${import.meta.env.VITE_BACKEND_URL || ""}/api/matches`, { headers }),
+        fetch(`${import.meta.env.VITE_BACKEND_URL || ""}/api/stats`, { headers })
       ]);
 
       if (statsRes.ok) {

@@ -32,12 +32,12 @@ export const AdminPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [loadingRecords, setLoadingRecords] = useState(false);
   const [errorOnRecords, setErrorOnRecords] = useState<string | null>(null);
-  
+
   // New Sidebar & Navigation State
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<"dashboard" | "players" | "tournament" | "fixtures" | "results" | "settings">("dashboard");
   const [subTab, setSubTab] = useState<"players" | "officials" | "tournament">("players");
-  
+
   const [deletingPlayerId, setDeletingPlayerId] = useState<string | null>(null);
   const [deletingOfficialId, setDeletingOfficialId] = useState<string | null>(null);
   const [deletingTeamId, setDeletingTeamId] = useState<string | null>(null);
@@ -82,7 +82,7 @@ export const AdminPage: React.FC = () => {
     setLoginError(null);
     setIsVerifying(true);
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL || ""}/api/auth/admin-login`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL || ""}/api/auth/admin-login`, {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ password: passwordInput })
       });
@@ -101,7 +101,7 @@ export const AdminPage: React.FC = () => {
     setLoadingRecords(true);
     setErrorOnRecords(null);
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL || ""}/api/admin/teams`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL || ""}/api/admin/teams`, {
         headers: { Authorization: `Bearer ${authToken}` }
       });
       if (!response.ok) throw new Error("Unable to retrieve rosters.");
@@ -124,7 +124,7 @@ export const AdminPage: React.FC = () => {
 
   const loadMatches = async () => {
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL || ""}/api/matches`, {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL || ""}/api/matches`, {
         headers: { Authorization: `Bearer ${authToken}` }
       });
       if (res.ok) {
@@ -144,7 +144,7 @@ export const AdminPage: React.FC = () => {
       onConfirm: async () => {
         setDeletingPlayerId(playerId);
         try {
-          const response = await fetch(`${import.meta.env.VITE_API_URL || ""}/api/admin/players/${playerId}`, {
+          const response = await fetch(`${import.meta.env.VITE_BACKEND_URL || ""}/api/admin/players/${playerId}`, {
             method: "DELETE", headers: { Authorization: `Bearer ${authToken}` }
           });
           if (!response.ok) throw new Error("Delete rejected.");
@@ -166,7 +166,7 @@ export const AdminPage: React.FC = () => {
       onConfirm: async () => {
         setDeletingOfficialId(officialId);
         try {
-          const response = await fetch(`${import.meta.env.VITE_API_URL || ""}/api/admin/officials/${officialId}`, {
+          const response = await fetch(`${import.meta.env.VITE_BACKEND_URL || ""}/api/admin/officials/${officialId}`, {
             method: "DELETE", headers: { Authorization: `Bearer ${authToken}` }
           });
           if (!response.ok) throw new Error("Delete rejected.");
@@ -188,7 +188,7 @@ export const AdminPage: React.FC = () => {
       onConfirm: async () => {
         setDeletingTeamId(teamId);
         try {
-          const response = await fetch(`${import.meta.env.VITE_API_URL || ""}/api/admin/teams/${teamId}`, {
+          const response = await fetch(`${import.meta.env.VITE_BACKEND_URL || ""}/api/admin/teams/${teamId}`, {
             method: "DELETE", headers: { Authorization: `Bearer ${authToken}` }
           });
           if (!response.ok) throw new Error("Action rejected.");
@@ -321,7 +321,7 @@ export const AdminPage: React.FC = () => {
             <div className="bg-gradient-to-br from-[#0a3d0a] to-[#071510] rounded-[2rem] p-8 shadow-xl relative overflow-hidden border border-emerald-900/50">
               <div className="absolute right-0 top-0 bottom-0 w-1/2 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
               <div className="absolute -right-20 -top-20 w-64 h-64 bg-[#F59E0B] rounded-full blur-[100px] opacity-20 pointer-events-none"></div>
-              
+
               <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                 <div>
                   <h2 className="text-3xl font-black text-white tracking-tight">Welcome back, Admin <span className="text-[#F59E0B]">👋</span></h2>
@@ -351,10 +351,10 @@ export const AdminPage: React.FC = () => {
               ].map((stat, i) => (
                 stat.link ? (
                   <Link to={stat.link} key={i} className={`${stat.bg} ${stat.border} border rounded-[1.5rem] p-5 flex items-center gap-4 hover:-translate-y-1 transition-transform cursor-pointer shadow-sm`}>
-                    <div className="p-3 bg-white rounded-2xl shadow-sm"><stat.icon className={`h-6 w-6 ${stat.color}`} /></div>
+                    <div className="p-3 bg-[#0a3d0a] rounded-2xl shadow-sm"><stat.icon className={`h-6 w-6 ${stat.color}`} /></div>
                     <div>
                       <div className={`text-2xl font-black ${stat.color} leading-none mb-1`}>{stat.value}</div>
-                      <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">{stat.label}</div>
+                      <div className="text-[10px] text-white uppercase tracking-widest font-bold">{stat.label}</div>
                     </div>
                   </Link>
                 ) : (
@@ -377,19 +377,18 @@ export const AdminPage: React.FC = () => {
                     <Trophy className="h-5 w-5 text-[#F59E0B]" /> Live & Recent Matches
                   </h3>
                   <button onClick={() => setActiveTab("results")} className="text-[10px] text-emerald-600 font-bold uppercase tracking-widest hover:underline">View All</button>
+                  <button onClick={() => setActiveTab("results")} className="text-[10px] text-emerald-400 font-bold uppercase tracking-widest hover:underline">View All</button>
                 </div>
                 <div className="space-y-3">
                   {matches.slice(0, 4).length === 0 ? (
-                    <div className="py-8 text-center text-slate-400 text-xs font-semibold bg-slate-50 rounded-xl border border-dashed border-slate-200">No matches found.</div>
+                    <div className="py-8 text-center text-emerald-700 text-xs font-semibold bg-[#0a3d0a] rounded-xl border border-dashed border-emerald-800">No matches found.</div>
                   ) : matches.slice(0, 4).map(match => (
-                    <div key={match._id} className="p-4 bg-slate-50 border border-slate-100 rounded-2xl flex items-center justify-between hover:bg-white hover:shadow-md transition-all">
+                    <div key={match._id} className="p-4 bg-[#0a3d0a] border border-emerald-900/30 rounded-2xl flex items-center justify-between hover:bg-[#0f2d1a] hover:shadow-md transition-all text-white">
                       <div className="flex items-center gap-3">
-                        <div className="p-2 bg-white rounded-xl shadow-sm border border-slate-100">
+                        <div className="p-3 bg-[#0a3d0a] rounded-xl shadow-sm border border-emerald-900/30">
                           {match.status === "Live" ? <Clock className="h-4 w-4 text-red-500 animate-pulse" /> : <CheckCircle className="h-4 w-4 text-emerald-600" />}
                         </div>
                         <div>
-                          <p className="text-xs font-black uppercase text-slate-800">{match.homeTeamName} {match.homeScore ?? 0} - {match.awayScore ?? 0} {match.awayTeamName}</p>
-                          <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-0.5">{match.stage} • {match.status}</p>
                         </div>
                       </div>
                       <button onClick={() => setViewingMatch(match)} className="w-8 h-8 flex items-center justify-center bg-white border border-slate-200 hover:border-[#F59E0B] hover:text-[#F59E0B] rounded-xl transition-colors text-slate-400">
@@ -559,7 +558,7 @@ export const AdminPage: React.FC = () => {
         return <TournamentHub authToken={authToken || ""} activeTab="fixtures" />;
       case "results":
         return <TournamentHub authToken={authToken || ""} activeTab="results" />;
-      
+
       default:
         return <div>Section under construction</div>;
     }
@@ -567,7 +566,7 @@ export const AdminPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#071510] text-white font-sans flex flex-col md:flex-row">
-      
+
       {/* MOBILE HEADER */}
       <div className="md:hidden bg-[#071510] text-white p-4 flex items-center justify-between sticky top-0 z-40 shadow-lg border-b border-emerald-900">
         <div className="flex items-center gap-3">
@@ -581,7 +580,7 @@ export const AdminPage: React.FC = () => {
 
       {/* FIXED SIDEBAR */}
       <div className={`fixed inset-y-0 left-0 z-50 w-72 bg-[#071510] border-r border-emerald-900/50 flex flex-col transform transition-transform duration-300 md:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:static md:flex-shrink-0 shadow-2xl md:shadow-none`}>
-        
+
         {/* Sidebar Logo */}
         <div className="p-6 flex items-center gap-4 border-b border-emerald-900/50">
           <img src={tournamentLogo} alt="Logo" className="w-12 h-12 rounded-full border-2 border-[#F59E0B] shadow-[0_0_15px_rgba(245,158,11,0.2)]" />
