@@ -224,6 +224,35 @@ export const TournamentHub: React.FC<TournamentHubProps> = ({ authToken, activeT
     }
   };
 
+  // Create tournament (simple flow for Admins)
+  const handleCreateTournament = async () => {
+    try {
+      const name = window.prompt('Enter a name for the new tournament');
+      if (!name || !name.trim()) return;
+      setLoading(true);
+      setError(null);
+      const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+      if (authToken && authToken.trim() !== '') headers.Authorization = `Bearer ${authToken}`;
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL || ""}/api/tournaments`, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({ name: name.trim() })
+      });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.message || 'Failed to create tournament');
+      }
+      // Refresh data after creation
+      await loadData(false);
+      alert('Tournament created successfully');
+    } catch (err: any) {
+      console.error(err);
+      setError(err.message || 'Failed to create tournament');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   // Helper function to format date and time
   const formatMatchDateTime = (dateString: string) => {
     const date = new Date(dateString);
@@ -667,7 +696,24 @@ export const TournamentHub: React.FC<TournamentHubProps> = ({ authToken, activeT
           <p className="text-xs font-bold uppercase tracking-wider">{error}</p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+        <>
+          <div className="flex items-center justify-between">
+            <h2 className="font-bebas text-2xl text-slate-800 tracking-wider uppercase mb-3 sm:mb-4 flex items-center gap-2">
+              <Calendar className="h-4 w-4 sm:h-5 sm:w-5" /> Upcoming Fixtures
+            </h2>
+            {authToken && authToken.trim() !== '' && (
+              <div className="ml-4">
+                <button
+                  onClick={handleCreateTournament}
+                  className="inline-flex items-center gap-2 px-3 py-2 bg-emerald-700 hover:bg-emerald-600 text-white font-bold rounded-xl text-sm"
+                >
+                  <Trophy className="h-4 w-4" /> Create Tournament
+                </button>
+              </div>
+            )}
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
           <div className="lg:col-span-2 space-y-4 sm:space-y-6">
             {renderGroupTable("A", standings.A)}
             {renderGroupTable("B", standings.B)}
@@ -791,6 +837,7 @@ export const TournamentHub: React.FC<TournamentHubProps> = ({ authToken, activeT
             </div>
           </div>
         </div>
+        </>
       )}
 
       {/* STATISTICS TAB VIEW */}
