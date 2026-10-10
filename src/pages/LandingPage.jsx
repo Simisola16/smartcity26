@@ -308,7 +308,7 @@ export function LandingPage() {
                   to="/club-register"
                   className="bg-[#00ff88] text-[#013618] hover:bg-[#e5a823] font-black px-6 py-2.5 rounded-full text-xs uppercase tracking-wider transition-all duration-300 transform hover:-translate-y-0.5 shadow-[0_0_20px_rgba(0,255,136,0.35)]"
                 >
-                  Register Club
+                  Register for SmartCity 2026
                 </Link>
               </div>
 
@@ -374,7 +374,7 @@ export function LandingPage() {
                   onClick={() => setIsMenuOpen(false)}
                   className="block w-full py-3 text-center bg-[#00ff88] text-[#013618] font-black rounded-lg uppercase tracking-wider text-sm shadow-md"
                 >
-                  Register Your Club
+                  Register for SmartCity 2026
                 </Link>
                 <div className="grid grid-cols-2 gap-2 pt-2">
                   <Link
@@ -483,7 +483,7 @@ export function LandingPage() {
                   to="/club-register"
                   className="inline-flex justify-center items-center gap-2 bg-[#00ff88] text-[#013618] font-black px-8 py-4 rounded-full hover:bg-[#e5a823] hover:shadow-[0_0_25px_rgba(229,168,35,0.45)] transition-all duration-300 transform hover:-translate-y-1 text-base uppercase tracking-wider"
                 >
-                  Register Your Club
+                  Register for SmartCity 2026
                   <ArrowRight className="w-5 h-5" />
                 </Link>
 
@@ -522,12 +522,18 @@ export function LandingPage() {
 
                 <div className="flex justify-between items-end mb-6 border-b border-white/10 pb-4 relative z-10">
                   <div>
-                    <h2 className="text-2xl font-bold flex items-center gap-3 text-white">
+                    <h2 className="text-2xl font-bold flex items-center gap-2.5 text-white flex-wrap">
                       Latest Features
                       <span className="relative flex h-3 w-3">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00ff88] opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-3 w-3 bg-[#00ff88]"></span>
                       </span>
+                      <Link
+                        to="/livescore"
+                        className="text-xs uppercase font-extrabold tracking-widest text-[#00ff88] bg-[#00ff88]/15 border border-[#00ff88]/30 px-2.5 py-0.5 rounded-full hover:bg-[#00ff88] hover:text-[#013618] transition-colors inline-flex items-center gap-1 ml-1"
+                      >
+                        Live Score
+                      </Link>
                     </h2>
                     <p className="text-xs sm:text-sm text-gray-400 mt-1">Key digital innovations powering SmartCity League</p>
                   </div>
@@ -616,7 +622,7 @@ export function LandingPage() {
                   to="/club-register" 
                   className="ml-4 inline-flex items-center gap-2 px-5 py-2.5 bg-[#e5a823] text-[#013618] font-bold text-sm rounded-lg hover:bg-amber-400 transition-colors uppercase tracking-wider"
                 >
-                  Register Team
+                  Register for SmartCity 2026
                 </Link>
               </div>
             </div>
@@ -893,7 +899,7 @@ export function LandingPage() {
               to="/club-register" 
               className="w-full sm:w-auto px-10 py-4 bg-[#e5a823] hover:bg-amber-400 text-[#013618] font-black text-base uppercase tracking-widest rounded-full transition-all duration-300 transform hover:-translate-y-1 shadow-[0_0_30px_rgba(229,168,35,0.4)] flex items-center justify-center gap-2"
             >
-              Register Club for SmartCity
+              Register for SmartCity 2026
               <ChevronRight className="w-5 h-5" />
             </Link>
             <Link 

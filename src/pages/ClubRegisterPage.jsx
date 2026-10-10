@@ -173,9 +173,11 @@ export function ClubRegisterPage() {
         <h1 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tight mb-4">
           Registration <span className="text-amber-400">Received!</span>
         </h1>
-        <p className="text-xl text-emerald-100 max-w-xl mx-auto mb-10 font-medium">
-          Thank you! Your club registration has been received. We will contact you within{' '}
-          <span className="text-amber-400 font-bold">48 hours</span>.
+        <p className="text-xl text-emerald-100 max-w-xl mx-auto mb-3 font-medium">
+          Thank you! Your club registration has been successfully submitted.
+        </p>
+        <p className="text-sm text-emerald-200/90 max-w-lg mx-auto mb-10 bg-emerald-900/40 border border-emerald-800/60 p-4 rounded-xl leading-relaxed">
+          The league administration will review your details. Once approved, your official login credentials and password will be sent directly to your registered email address.
         </p>
         <Link
           to="/"
