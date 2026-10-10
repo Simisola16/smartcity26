@@ -6,8 +6,7 @@ import {
   AlertCircle, RefreshCw, Shield, Calendar, Trophy, Star, Plus,
   Eye, Trash2, BookOpen, AlertTriangle, ArrowLeft, ArrowUpRight
 } from 'lucide-react';
-
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
+import { BACKEND_URL } from '../config';
 
 const getClubToken = () => localStorage.getItem('club_token');
 

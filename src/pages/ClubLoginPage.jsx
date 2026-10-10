@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Eye, EyeOff, LogIn, AlertCircle, Mail, Lock, ChevronRight, X, CheckCircle, RefreshCw, Check } from 'lucide-react';
-
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
+import { BACKEND_URL } from '../config';
 
 // ─── Forgot Password Modal ───────────────────────────────────────────────────
 function ForgotPasswordModal({ onClose }) {

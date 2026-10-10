@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { Match, GroupStanding, Player } from "../types.js";
 import { Modal } from "./Modal.js";
+import { BACKEND_URL } from "../config.js";
 import { Trophy, Calendar, MapPin, Clock, Layers, Users, ShieldAlert, Zap, AlertTriangle, ArrowLeft, RefreshCw, Eye, Pencil } from "lucide-react";
 
 const FORMATIONS: Record<string, { def: number; mid: number; fwd: number }> = {
@@ -189,9 +190,9 @@ export const TournamentHub: React.FC<TournamentHubProps> = ({ authToken, activeT
         ? { Authorization: `Bearer ${authToken}` } 
         : {};
       const [standingsRes, matchesRes, statsRes] = await Promise.all([
-        fetch(`${import.meta.env.VITE_BACKEND_URL || ""}/api/standings`, { headers }),
-        fetch(`${import.meta.env.VITE_BACKEND_URL || ""}/api/matches`, { headers }),
-        fetch(`${import.meta.env.VITE_BACKEND_URL || ""}/api/stats`, { headers })
+        fetch(`${BACKEND_URL}/api/standings`, { headers }),
+        fetch(`${BACKEND_URL}/api/matches`, { headers }),
+        fetch(`${BACKEND_URL}/api/stats`, { headers })
       ]);
 
       if (statsRes.ok) {
@@ -233,7 +234,7 @@ export const TournamentHub: React.FC<TournamentHubProps> = ({ authToken, activeT
       setError(null);
       const headers: Record<string, string> = { 'Content-Type': 'application/json' };
       if (authToken && authToken.trim() !== '') headers.Authorization = `Bearer ${authToken}`;
-      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL || ""}/api/tournaments`, {
+      const res = await fetch(`${BACKEND_URL}/api/tournaments`, {
         method: 'POST',
         headers,
         body: JSON.stringify({ name: name.trim() })

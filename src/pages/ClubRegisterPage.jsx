@@ -4,6 +4,7 @@ import {
   Menu, X, ChevronRight, CheckCircle, Phone, Mail,
   Facebook, Twitter, Instagram, Youtube, Upload, MessageCircle
 } from 'lucide-react';
+import { BACKEND_URL } from '../config';
 
 const OSUN_LGAS = [
   'Aiyedade', 'Aiyedire', 'Atakumosa East', 'Atakumosa West',
@@ -142,7 +143,6 @@ export function ClubRegisterPage() {
         prevTransfer: form.prevTransfer,
       };
 
-      const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
       const res = await fetch(`${BACKEND_URL}/api/club-registrations`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

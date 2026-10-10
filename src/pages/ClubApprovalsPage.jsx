@@ -7,8 +7,7 @@ import {
   MapPin, Calendar, Shield, Star, BarChart3, Key, Copy, Check, Shuffle,
   Plus, Edit2, FileText, Bell, Trophy, BookOpen, Upload, ArrowUpRight
 } from 'lucide-react';
-
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
+import { BACKEND_URL } from '../config';
 
 const getAdminToken = () => localStorage.getItem('mko_token') || localStorage.getItem('adminToken');
 

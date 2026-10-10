@@ -7,6 +7,7 @@ import {
   Handshake, UserCog, Facebook, Twitter, Instagram, Youtube, Award,
   ExternalLink, Play
 } from 'lucide-react';
+import { BACKEND_URL } from '../config';
 
 export function LandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -71,8 +72,7 @@ export function LandingPage() {
   useEffect(() => {
     const fetchLatestMatches = async () => {
       try {
-        const backendUrl = import.meta.env.VITE_BACKEND_URL || import.meta.env.VITE_API_URL || "";
-        const res = await fetch(`${backendUrl}/api/matches`);
+        const res = await fetch(`${BACKEND_URL}/api/matches`);
         if (res.ok) {
           const data = await res.json();
           if (data && data.matches && data.matches.length > 0) {

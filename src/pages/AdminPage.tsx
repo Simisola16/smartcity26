@@ -13,6 +13,7 @@ import { LiveMarquee } from "../components/LiveMarquee.js";
 import { TournamentManager } from "../components/TournamentManager.js";
 import { Modal } from "../components/Modal.js";
 import { Team, Player, Official, Match } from "../types.js";
+import { BACKEND_URL } from "../config.js";
 
 export const AdminPage: React.FC = () => {
   const { authToken, isAdmin, loginAdmin, logout } = useRegistration();
@@ -81,7 +82,7 @@ export const AdminPage: React.FC = () => {
     setLoginError(null);
     setIsVerifying(true);
     try {
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL || ""}/api/auth/admin-login`, {
+      const response = await fetch(`${BACKEND_URL}/api/auth/admin-login`, {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ password: passwordInput })
       });
@@ -100,7 +101,7 @@ export const AdminPage: React.FC = () => {
     setLoadingRecords(true);
     setErrorOnRecords(null);
     try {
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL || ""}/api/admin/teams`, {
+      const response = await fetch(`${BACKEND_URL}/api/admin/teams`, {
         headers: { Authorization: `Bearer ${authToken}` }
       });
       if (!response.ok) throw new Error("Unable to retrieve rosters.");
@@ -123,7 +124,7 @@ export const AdminPage: React.FC = () => {
 
   const loadMatches = async () => {
     try {
-      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL || ""}/api/matches`, {
+      const res = await fetch(`${BACKEND_URL}/api/matches`, {
         headers: { Authorization: `Bearer ${authToken}` }
       });
       if (res.ok) {
@@ -143,7 +144,7 @@ export const AdminPage: React.FC = () => {
       onConfirm: async () => {
         setDeletingPlayerId(playerId);
         try {
-          const response = await fetch(`${import.meta.env.VITE_BACKEND_URL || ""}/api/admin/players/${playerId}`, {
+          const response = await fetch(`${BACKEND_URL}/api/admin/players/${playerId}`, {
             method: "DELETE", headers: { Authorization: `Bearer ${authToken}` }
           });
           if (!response.ok) throw new Error("Delete rejected.");
@@ -165,7 +166,7 @@ export const AdminPage: React.FC = () => {
       onConfirm: async () => {
         setDeletingOfficialId(officialId);
         try {
-          const response = await fetch(`${import.meta.env.VITE_BACKEND_URL || ""}/api/admin/officials/${officialId}`, {
+          const response = await fetch(`${BACKEND_URL}/api/admin/officials/${officialId}`, {
             method: "DELETE", headers: { Authorization: `Bearer ${authToken}` }
           });
           if (!response.ok) throw new Error("Delete rejected.");
@@ -187,7 +188,7 @@ export const AdminPage: React.FC = () => {
       onConfirm: async () => {
         setDeletingTeamId(teamId);
         try {
-          const response = await fetch(`${import.meta.env.VITE_BACKEND_URL || ""}/api/admin/teams/${teamId}`, {
+          const response = await fetch(`${BACKEND_URL}/api/admin/teams/${teamId}`, {
             method: "DELETE", headers: { Authorization: `Bearer ${authToken}` }
           });
           if (!response.ok) throw new Error("Action rejected.");
