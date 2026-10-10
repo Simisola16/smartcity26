@@ -4,7 +4,7 @@ import {
   Shield, Key, AlertCircle, RefreshCw, Trash2, Printer, Search,
   LogOut, ChevronRight, Users, UserCheck, Building2,
   Trophy, TrendingUp, Eye, Zap, Clock, Share2,
-  LayoutDashboard, Bell, FileText, Menu, X, Calendar, Settings, Megaphone
+  LayoutDashboard, Bell, FileText, Menu, X, Calendar, Settings, Megaphone, ArrowLeft
 } from "lucide-react";
 import { useRegistration } from "../context/RegistrationContext.js";
 import { PrintCard } from "../components/PrintCard.js";
@@ -241,6 +241,15 @@ export const AdminPage: React.FC = () => {
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0a3d0a] via-[#F59E0B] to-[#0a3d0a]" />
 
         <div className="sm:mx-auto sm:w-full sm:max-w-md relative z-10 space-y-6">
+          <div className="flex justify-start">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 text-xs text-emerald-400/80 hover:text-white bg-[#0f2d1a]/60 border border-emerald-800/40 px-3.5 py-1.5 rounded-full backdrop-blur-md transition-colors"
+            >
+              <ArrowLeft className="h-3.5 w-3.5" />
+              <span>Back to Home</span>
+            </Link>
+          </div>
           <div className="text-center">
             <div className="flex justify-center mb-6">
               <img src="/smartCityImage.jpg" alt="SmartCity U17" className="h-20 w-20 rounded-full border-4 border-[#F59E0B] object-cover shadow-[0_0_30px_rgba(245,158,11,0.3)]" />

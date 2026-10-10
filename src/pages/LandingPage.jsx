@@ -243,7 +243,7 @@ export function LandingPage() {
 
               <div className="h-4 w-px bg-white/20 mx-2"></div>
               
-              <Link to="/login" className="flex items-center gap-1.5 hover:text-[#00ff88] transition-colors group">
+              <Link to="/admin" className="flex items-center gap-1.5 hover:text-[#00ff88] transition-colors group">
                 <UserCog className="w-3.5 h-3.5 text-[#e5a823] group-hover:text-[#00ff88] transition-colors" />
                 <span className="uppercase text-[11px] font-bold tracking-wider text-gray-200">Admin Login</span>
               </Link>
@@ -393,7 +393,7 @@ export function LandingPage() {
                   </Link>
                 </div>
                 <Link
-                  to="/login"
+                  to="/admin"
                   onClick={() => setIsMenuOpen(false)}
                   className="block py-2 text-center text-xs text-gray-400 hover:text-white uppercase tracking-wider"
                 >
@@ -981,7 +981,7 @@ export function LandingPage() {
                   { name: 'Club Portal Access', href: '/club-login' },
                   { name: 'Tournament Hub & Live Scores', href: '/livescore' },
                   { name: 'Referee Match Reporting', href: '/referee' },
-                  { name: 'Admin Supervision Panel', href: '/login' }
+                  { name: 'Admin Supervision Panel', href: '/admin' }
                 ].map((link) => (
                   <li key={link.name}>
                     <Link to={link.href} className="text-gray-400 hover:text-[#e5a823] transition-colors flex items-center gap-2 group text-sm">
@@ -1025,7 +1025,7 @@ export function LandingPage() {
             <div className="flex gap-6">
               <a href="#home" className="hover:text-white transition-colors">Back to Top</a>
               <Link to="/club-login" className="hover:text-[#00ff88] transition-colors">Club Portal</Link>
-              <Link to="/login" className="hover:text-[#e5a823] transition-colors">Admin Login</Link>
+              <Link to="/admin" className="hover:text-[#e5a823] transition-colors">Admin Login</Link>
             </div>
           </div>
         </div>
