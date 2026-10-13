@@ -574,32 +574,32 @@ export const ClubPortal: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#f8fcf8] text-[#141414] pb-24 font-sans animate-fade-in">
+    <div className="min-h-screen bg-[#060e0a] text-white pb-24 font-sans animate-fade-in">
       
       {/* GLOBAL NO-PRINT HEADER NAVBAR */}
-      <nav className="green-mesh border-b-4 border-[#FFD700] text-white py-4 px-4 sticky top-0 z-30 shadow-md no-print">
+      <nav className="bg-[#09150e]/95 backdrop-blur-xl border-b border-emerald-800/50 text-white py-4 px-4 sticky top-0 z-30 shadow-2xl no-print">
         <div className="max-w-6xl mx-auto flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <img src="/smartCityImage.jpg" alt="SmartCity U17" className="h-8 w-8 rounded-full border border-[#FFD700] bg-white object-cover shadow-sm" />
+          <div className="flex items-center gap-3">
+            <img src="/smartCityImage.jpg" alt="SmartCity U17" className="h-9 w-9 rounded-2xl border-2 border-amber-400/60 bg-emerald-950 object-cover shadow-[0_0_15px_rgba(245,158,11,0.25)]" />
             <div>
-              <h1 className="font-bebas text-lg tracking-wider text-[#FFD700] leading-none uppercase">
+              <h1 className="font-bebas text-xl tracking-wider text-amber-400 leading-none uppercase">
                 SmartCity U-17 CUP PORTAL
               </h1>
-              <span className="text-[9px] text-slate-300 font-mono tracking-widest leading-none">CLUB DASHBOARD</span>
+              <span className="text-[9px] text-emerald-400/80 font-mono tracking-widest leading-none">OFFICIAL ROSTER MANAGEMENT</span>
             </div>
           </div>
 
           <div className="flex items-center gap-2.5">
             <button
               onClick={handleCopyLivescore}
-              className="text-[10px] font-bold uppercase tracking-wider bg-[#FFD700] text-[#0a3d0a] px-3 py-1.5 rounded-lg border border-white/10 transition flex items-center gap-1.5 shadow-sm hover:brightness-110"
+              className="text-[10px] font-bold uppercase tracking-wider bg-gradient-to-r from-amber-500 to-amber-400 text-[#071510] px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-[0_0_15px_rgba(245,158,11,0.2)] hover:brightness-110 cursor-pointer"
             >
               <Share2 className="h-3 w-3" />
               Copy Livescore Link
             </button>
             <button
               onClick={logout}
-              className="text-[10px] font-bold uppercase tracking-wider bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-lg border border-white/5 transition flex items-center gap-1 text-slate-200"
+              className="text-[10px] font-bold uppercase tracking-wider bg-red-950/30 hover:bg-red-900/40 border border-red-800/40 text-red-300 hover:text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1 cursor-pointer"
             >
               <LogOut className="h-3 w-3" />
               Sign Out
@@ -616,17 +616,17 @@ export const ClubPortal: React.FC = () => {
         
         {/* ACTION OR RETRIEVAL ALERTS */}
         {errorOnLoad && (
-          <div className="p-4 bg-red-50 border border-red-200 rounded-2xl text-xs text-red-700 flex items-center gap-2">
-            <AlertCircle className="h-5 w-5 text-red-600 shrink-0" />
+          <div className="p-4 bg-red-950/40 border border-red-800/60 rounded-2xl text-xs text-red-300 flex items-center gap-2">
+            <AlertCircle className="h-5 w-5 text-red-400 shrink-0" />
             <span>{errorOnLoad}</span>
           </div>
         )}
 
         {actionError && (
-          <div className="p-4 bg-red-50 border border-red-200 rounded-2xl text-xs text-red-700 flex items-start gap-2 animate-fade-in mb-4">
-            <AlertCircle className="h-4 w-4 text-red-600 shrink-0 mt-0.5" />
+          <div className="p-4 bg-red-950/40 border border-red-800/60 rounded-2xl text-xs text-red-300 flex items-start gap-2 animate-fade-in mb-4">
+            <AlertCircle className="h-4 w-4 text-red-400 shrink-0 mt-0.5" />
             <div>
-              <span className="font-bold block">Action Rejected</span>
+              <span className="font-bold block text-red-200">Action Rejected</span>
               {actionError}
             </div>
           </div>
@@ -636,43 +636,43 @@ export const ClubPortal: React.FC = () => {
         <div className="flex gap-2 no-print overflow-x-auto pb-1 scrollbar-thin">
           <button
             onClick={() => handleTabChange("roster")}
-            className={`px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wide transition-all whitespace-nowrap ${
+            className={`px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all whitespace-nowrap cursor-pointer ${
               activeTab === "roster"
-                ? 'bg-[#0a3d0a] text-[#FFD700] shadow-md'
-                : 'bg-white text-slate-500 border border-slate-200 hover:bg-slate-50 hover:border-slate-300'
+                ? 'bg-gradient-to-r from-amber-500 to-amber-400 text-[#071510] shadow-[0_0_15px_rgba(245,158,11,0.25)]'
+                : 'bg-emerald-950/40 text-emerald-400 hover:bg-emerald-900/40 hover:text-white border border-emerald-800/30'
             }`}
           >
             📋 DASHBOARD
           </button>
           <button
             onClick={() => handleTabChange("tournament")}
-            className={`px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wide transition-all whitespace-nowrap ${
+            className={`px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all whitespace-nowrap cursor-pointer ${
               activeTab === "tournament"
-                ? 'bg-[#0a3d0a] text-[#FFD700] shadow-md'
-                : 'bg-white text-slate-500 border border-slate-200 hover:bg-slate-50 hover:border-slate-300'
+                ? 'bg-gradient-to-r from-amber-500 to-amber-400 text-[#071510] shadow-[0_0_15px_rgba(245,158,11,0.25)]'
+                : 'bg-emerald-950/40 text-emerald-400 hover:bg-emerald-900/40 hover:text-white border border-emerald-800/30'
             }`}
           >
             🏆 STANDINGS
           </button>
           <button
             onClick={() => handleTabChange("fixtures")}
-            className={`px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wide transition-all whitespace-nowrap ${
+            className={`px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all whitespace-nowrap cursor-pointer ${
               activeTab === "fixtures"
-                ? 'bg-[#0a3d0a] text-[#FFD700] shadow-md'
-                : 'bg-white text-slate-500 border border-slate-200 hover:bg-slate-50 hover:border-slate-300'
+                ? 'bg-gradient-to-r from-amber-500 to-amber-400 text-[#071510] shadow-[0_0_15px_rgba(245,158,11,0.25)]'
+                : 'bg-emerald-950/40 text-emerald-400 hover:bg-emerald-900/40 hover:text-white border border-emerald-800/30'
             }`}
           >
             📅 FIXTURES
           </button>
           <button
             onClick={() => handleTabChange("lineup")}
-            className={`px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wide transition-all whitespace-nowrap ${
+            className={`px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all whitespace-nowrap cursor-pointer ${
               activeTab === "lineup"
-                ? 'bg-[#0a3d0a] text-[#FFD700] shadow-md'
-                : 'bg-white text-slate-500 border border-slate-200 hover:bg-slate-50 hover:border-slate-300'
+                ? 'bg-gradient-to-r from-amber-500 to-amber-400 text-[#071510] shadow-[0_0_15px_rgba(245,158,11,0.25)]'
+                : 'bg-emerald-950/40 text-emerald-400 hover:bg-emerald-900/40 hover:text-white border border-emerald-800/30'
             }`}
           >
-            👕 LINEUP
+            👕 TACTICAL LINEUP
           </button>
         </div>
 
@@ -724,25 +724,25 @@ export const ClubPortal: React.FC = () => {
         ) : activeTab === "roster" ? (
           <>
             {/* PROFILE ATTRIBUTION HUD */}
-            <div className="bg-white rounded-3xl p-6 border border-slate-200/60 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="bg-[#091710] rounded-3xl p-6 border border-emerald-800/60 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="flex flex-col md:flex-row items-center gap-5 text-center md:text-left">
                 <img 
                   src={currentTeam?.logoUrl || "/placeholder-logo.png"} 
                   alt="Crest Profile" 
-                  className="w-20 h-20 rounded-full border-2 border-[#FFD700] bg-slate-50 object-cover shadow-sm flex-shrink-0" 
+                  className="w-20 h-20 rounded-2xl border-2 border-amber-400 bg-emerald-950 object-cover shadow-[0_0_20px_rgba(245,158,11,0.2)] flex-shrink-0" 
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = `https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=120&q=80`;
                   }}
                 />
                 <div className="space-y-1">
-                  <div className="flex flex-wrap items-center justify-center md:justify-start gap-1.5">
-                    <span className="font-bebas text-2xl text-slate-900 tracking-wide uppercase">{currentTeam?.clubName}</span>
-                    <span className="bg-emerald-100 text-emerald-800 text-[8.5px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full flex items-center gap-0.5">
-                      <BadgeCheck className="h-3 w-3 text-emerald-700" />
-                      Verified
+                  <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
+                    <span className="font-bebas text-3xl text-white tracking-wide uppercase">{currentTeam?.clubName}</span>
+                    <span className="bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-[9px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full flex items-center gap-1">
+                      <BadgeCheck className="h-3 w-3 text-emerald-400" />
+                      Verified Club
                     </span>
                   </div>
-                  <p className="text-xs text-slate-400 font-medium">Logged in correspondent: <span className="font-mono">{currentTeam?.email}</span></p>
+                  <p className="text-xs text-emerald-400 font-medium">Logged in correspondent: <span className="font-mono text-amber-400">{currentTeam?.email}</span></p>
                 </div>
               </div>
 
@@ -750,71 +750,71 @@ export const ClubPortal: React.FC = () => {
                 <button
                   onClick={triggerPrintAll}
                   disabled={totalPlayers === 0 && totalOfficials === 0}
-                  className="w-full sm:w-auto py-2.5 px-5 bg-emerald-700 hover:bg-[#0a3d0a] text-[#FFD700] hover:brightness-105 disabled:opacity-50 text-xs font-bold rounded-xl shadow-sm transition uppercase flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto py-3 px-6 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-[#071510] disabled:opacity-50 text-xs font-black rounded-xl shadow-[0_0_15px_rgba(245,158,11,0.3)] transition uppercase flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <Printer className="h-4 w-4" />
-                  Print Roster Cards
+                  Print Accreditation Passes
                 </button>
               </div>
             </div>
 
             {/* QUOTA COMPLIANCE DASHBOARD */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="bg-white border border-slate-200/60 shadow-sm rounded-2xl p-4">
+              <div className="bg-[#091710] border border-emerald-800/60 shadow-xl rounded-2xl p-5">
                 <div className="flex justify-between items-center mb-1">
-                  <span className="text-sm font-bold text-slate-700">Under-17</span>
-                  <span className="text-xs text-slate-400 font-bold">/ 20 Limit</span>
+                  <span className="text-xs font-black uppercase tracking-wider text-emerald-400">Under-17 Quota</span>
+                  <span className="text-[10px] text-emerald-500 font-mono font-bold">/ 20 Max</span>
                 </div>
-                <div className="w-full bg-slate-100 rounded-full h-2 mt-2">
-                  <div className="bg-emerald-500 h-2 rounded-full transition-all duration-300" style={{ width: `${(u17Count/20)*100}%` }} />
+                <div className="w-full bg-[#05100a] border border-emerald-900 rounded-full h-2 mt-2">
+                  <div className="bg-gradient-to-r from-emerald-500 to-emerald-400 h-2 rounded-full transition-all duration-300" style={{ width: `${(u17Count/20)*100}%` }} />
                 </div>
-                <div className="mt-2 text-center">
-                  <span className="text-lg font-bold text-emerald-700">{u17Count}</span>
-                  <span className="text-xs text-slate-400 ml-1">registered</span>
+                <div className="mt-2.5 text-center">
+                  <span className="text-2xl font-black text-white">{u17Count}</span>
+                  <span className="text-xs text-emerald-500 font-medium ml-1">licensed players</span>
                 </div>
               </div>
 
-              <div className="bg-white border border-slate-200/60 shadow-sm rounded-2xl p-4">
+              <div className="bg-[#091710] border border-emerald-800/60 shadow-xl rounded-2xl p-5">
                 <div className="flex justify-between items-center mb-1">
-                  <span className="text-sm font-bold text-slate-700">Overage (Free Age)</span>
-                  <span className="text-xs text-slate-400 font-bold">/ 6 Limit</span>
+                  <span className="text-xs font-black uppercase tracking-wider text-amber-400">Overage (Free Age)</span>
+                  <span className="text-[10px] text-amber-500 font-mono font-bold">/ 6 Max</span>
                 </div>
-                <div className="w-full bg-slate-100 rounded-full h-2 mt-2">
-                  <div className="bg-amber-500 h-2 rounded-full transition-all duration-300" style={{ width: `${(freeAgeCount/6)*100}%` }} />
+                <div className="w-full bg-[#05100a] border border-emerald-900 rounded-full h-2 mt-2">
+                  <div className="bg-gradient-to-r from-amber-500 to-amber-400 h-2 rounded-full transition-all duration-300" style={{ width: `${(freeAgeCount/6)*100}%` }} />
                 </div>
-                <div className="mt-2 text-center">
-                  <span className="text-lg font-bold text-amber-700">{freeAgeCount}</span>
-                  <span className="text-xs text-slate-400 ml-1">registered</span>
+                <div className="mt-2.5 text-center">
+                  <span className="text-2xl font-black text-white">{freeAgeCount}</span>
+                  <span className="text-xs text-amber-500 font-medium ml-1">licensed players</span>
                 </div>
               </div>
 
-              <div className="bg-white border border-slate-200/60 shadow-sm rounded-2xl p-4">
+              <div className="bg-[#091710] border border-emerald-800/60 shadow-xl rounded-2xl p-5">
                 <div className="flex justify-between items-center mb-1">
-                  <span className="text-sm font-bold text-slate-700">Officials</span>
-                  <span className="text-xs text-slate-400 font-bold">/ 4 Limit</span>
+                  <span className="text-xs font-black uppercase tracking-wider text-blue-400">Team Officials</span>
+                  <span className="text-[10px] text-blue-500 font-mono font-bold">/ 4 Max</span>
                 </div>
-                <div className="w-full bg-slate-100 rounded-full h-2 mt-2">
-                  <div className="bg-blue-600 h-2 rounded-full transition-all duration-300" style={{ width: `${(totalOfficials/4)*100}%` }} />
+                <div className="w-full bg-[#05100a] border border-emerald-900 rounded-full h-2 mt-2">
+                  <div className="bg-gradient-to-r from-blue-500 to-blue-400 h-2 rounded-full transition-all duration-300" style={{ width: `${(totalOfficials/4)*100}%` }} />
                 </div>
-                <div className="mt-2 text-center">
-                  <span className="text-lg font-bold text-blue-700">{totalOfficials}</span>
-                  <span className="text-xs text-slate-400 ml-1">registered</span>
+                <div className="mt-2.5 text-center">
+                  <span className="text-2xl font-black text-white">{totalOfficials}</span>
+                  <span className="text-xs text-blue-400 font-medium ml-1">accredited staff</span>
                 </div>
               </div>
             </div>
 
             {/* COMPETITOR MANAGEMENT ROW */}
             <div className="space-y-4">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-slate-200 pb-3 gap-3">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-emerald-900/60 pb-3 gap-3">
                 <div>
-                  <h3 className="font-bebas text-2xl text-[#0a3d0a] tracking-wider uppercase">PLAYERS ID CREDENTIALS</h3>
-                  <p className="text-xs text-slate-400">Manage, preview, and output passport sports credentials</p>
+                  <h3 className="font-bebas text-3xl text-amber-400 tracking-wider uppercase leading-none">PLAYER ACCREDITATION PASSES</h3>
+                  <p className="text-xs text-emerald-400 mt-0.5">Manage and output official digital competition passes</p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
                   {u17Count < 20 && (
                     <button
                       onClick={() => setShowPlayerModal("Under-17")}
-                      className="py-2 px-4 bg-[#0a3d0a] hover:bg-[#072a07] text-[#FFD700] text-xs font-bold rounded-lg transition uppercase flex items-center justify-center gap-1 shadow-sm"
+                      className="py-2.5 px-4 bg-emerald-800 hover:bg-emerald-700 text-white text-xs font-black rounded-xl transition uppercase flex items-center justify-center gap-1 shadow-md cursor-pointer"
                     >
                       + Add Under-17 Player
                     </button>
@@ -822,7 +822,7 @@ export const ClubPortal: React.FC = () => {
                   {freeAgeCount < 6 && (
                     <button
                       onClick={() => setShowPlayerModal("Free Age")}
-                      className="py-2 px-4 bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold rounded-lg transition uppercase flex items-center justify-center gap-1 shadow-sm"
+                      className="py-2.5 px-4 bg-amber-600 hover:bg-amber-500 text-white text-xs font-black rounded-xl transition uppercase flex items-center justify-center gap-1 shadow-md cursor-pointer"
                     >
                       + Add Overage Player
                     </button>
@@ -831,14 +831,15 @@ export const ClubPortal: React.FC = () => {
               </div>
 
               {rosterPlayers.length === 0 ? (
-                <div className="bg-white py-12 text-center text-slate-400 border border-slate-200/60 rounded-2xl">
-                  <span className="text-3xl">🏃‍♂️</span>
-                  <p className="text-xs font-semibold text-slate-700 mt-2">No Verified Competitors Found</p>
-                  <div className="flex justify-center gap-2 mt-4">
+                <div className="bg-[#091710] py-14 text-center text-emerald-500 border border-emerald-800/60 rounded-3xl space-y-3">
+                  <span className="text-4xl block">🏃‍♂️</span>
+                  <p className="text-sm font-bold text-white uppercase tracking-wider">No Verified Competitors Found</p>
+                  <p className="text-xs text-emerald-600 font-medium">Add Under-17 or Overage players to print accreditation credentials</p>
+                  <div className="flex justify-center gap-3 pt-2">
                     {u17Count < 20 && (
                       <button
                         onClick={() => setShowPlayerModal("Under-17")}
-                        className="text-xs text-[#0a3d0a] font-bold hover:underline"
+                        className="px-4 py-2 bg-emerald-800 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold uppercase tracking-wider"
                       >
                         + Add Under-17 Player
                       </button>
@@ -846,7 +847,7 @@ export const ClubPortal: React.FC = () => {
                     {freeAgeCount < 6 && (
                       <button
                         onClick={() => setShowPlayerModal("Free Age")}
-                        className="text-xs text-amber-600 font-bold hover:underline"
+                        className="px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white rounded-xl text-xs font-bold uppercase tracking-wider"
                       >
                         + Add Overage Player
                       </button>
@@ -863,7 +864,7 @@ export const ClubPortal: React.FC = () => {
                         team={currentTeam} 
                       />
                       {/* Individual Print Button Overlay */}
-                      <div className="absolute top-2 right-2 flex gap-1 bg-white/95 rounded-md p-1 shadow border border-slate-200 opacity-0 group-hover/card:opacity-100 transition-opacity z-10">
+                      <div className="absolute top-2 right-2 flex gap-1 bg-[#091710]/95 rounded-lg p-1 shadow-lg border border-emerald-700 opacity-0 group-hover/card:opacity-100 transition-opacity z-10">
                         <button
                           onClick={(e) => {
                             const cardEl = (e.currentTarget.closest('.group\\/card') as HTMLElement)?.querySelector('.print-card-container');
@@ -878,7 +879,7 @@ export const ClubPortal: React.FC = () => {
                             document.body.classList.remove('print-single');
                             document.body.removeChild(target);
                           }}
-                          className="p-1 text-emerald-700 hover:bg-emerald-50 rounded transition-colors"
+                          className="p-1.5 text-amber-400 hover:text-white hover:bg-emerald-800 rounded transition-colors"
                           title="Print This Card Only"
                         >
                           <Printer className="h-3.5 w-3.5" />
@@ -892,15 +893,15 @@ export const ClubPortal: React.FC = () => {
 
             {/* OFFICIALS ROSTER ROW */}
             <div className="space-y-4">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-slate-200 pb-3 gap-3">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-emerald-900/60 pb-3 gap-3">
                 <div>
-                  <h3 className="font-bebas text-2xl text-[#0a3d0a] tracking-wider uppercase">SUPPORT OFFICIAL CREDENTIALS</h3>
-                  <p className="text-xs text-slate-400">Technical officials, medical staff, and management cards</p>
+                  <h3 className="font-bebas text-3xl text-amber-400 tracking-wider uppercase leading-none">SUPPORT OFFICIAL CREDENTIALS</h3>
+                  <p className="text-xs text-emerald-400 mt-0.5">Technical officials, medical staff, and management cards</p>
                 </div>
                 {totalOfficials < 4 && (
                   <button
                     onClick={() => setShowOfficialModal(true)}
-                    className="py-2 px-4 bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold rounded-lg transition uppercase flex items-center justify-center gap-1 shadow-sm"
+                    className="py-2.5 px-4 bg-amber-600 hover:bg-amber-500 text-white text-xs font-black rounded-xl transition uppercase flex items-center justify-center gap-1 shadow-md cursor-pointer"
                   >
                     + Add Official
                   </button>
@@ -908,9 +909,10 @@ export const ClubPortal: React.FC = () => {
               </div>
 
               {rosterOfficials.length === 0 ? (
-                <div className="bg-white py-12 text-center text-slate-400 border border-slate-200/60 rounded-2xl">
-                  <span className="text-3xl">👔</span>
-                  <p className="text-xs font-semibold text-slate-700 mt-2">No Verified Officials Registered</p>
+                <div className="bg-[#091710] py-14 text-center text-emerald-500 border border-emerald-800/60 rounded-3xl space-y-2">
+                  <span className="text-4xl block">👔</span>
+                  <p className="text-sm font-bold text-white uppercase tracking-wider">No Verified Officials Registered</p>
+                  <p className="text-xs text-emerald-600 font-medium">Add Head Coach, Kit Manager, or Team Doctor</p>
                 </div>
               ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">

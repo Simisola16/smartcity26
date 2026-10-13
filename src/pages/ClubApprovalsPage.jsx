@@ -1105,54 +1105,56 @@ export function ClubApprovalsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#071510] text-white font-sans flex flex-col md:flex-row">
+    <div className="min-h-screen bg-[#060e0a] text-white font-sans flex flex-col md:flex-row selection:bg-amber-500 selection:text-black">
+      {/* Top Gold Horizon Accent */}
+      <div className="h-1 bg-gradient-to-r from-emerald-900 via-amber-400 to-emerald-900 shadow-[0_0_15px_rgba(245,158,11,0.5)] md:hidden" />
 
       {/* Mobile Overlay */}
       {sidebarOpen && (
-        <div className="fixed inset-0 bg-black/70 z-35 md:hidden" onClick={() => setSidebarOpen(false)} />
+        <div className="fixed inset-0 bg-black/75 backdrop-blur-sm z-35 md:hidden" onClick={() => setSidebarOpen(false)} />
       )}
 
       {/* Sidebar */}
       <aside className={`
-        fixed top-0 left-0 h-full w-72 bg-emerald-950 border-r border-emerald-800 z-40 flex flex-col
-        transform transition-transform duration-300
+        fixed top-0 left-0 h-full w-72 bg-[#09150e] border-r border-emerald-800/60 z-40 flex flex-col
+        transform transition-transform duration-300 shadow-2xl
         ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
         md:translate-x-0 md:static md:flex
       `}>
         {/* Brand */}
-        <div className="p-6 border-b border-emerald-800 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center border-2 border-amber-400 overflow-hidden">
-              <img src="/smartCityImage.jpg" alt="Logo" className="w-full h-full object-contain rounded-full" />
+        <div className="p-6 border-b border-emerald-900/60 flex items-center justify-between bg-[#07120c]">
+          <div className="flex items-center gap-3.5">
+            <div className="w-11 h-11 rounded-2xl border-2 border-amber-400/80 overflow-hidden bg-emerald-950 shadow-[0_0_15px_rgba(245,158,11,0.25)] flex items-center justify-center flex-shrink-0">
+              <img src="/smartCityImage.jpg" alt="Logo" className="w-full h-full object-cover" />
             </div>
             <div>
-              <p className="font-black text-sm text-white uppercase tracking-tight">Smart<span className="text-amber-400">City</span></p>
-              <p className="text-[0.6rem] text-emerald-400 uppercase tracking-widest font-bold leading-none">Admin Panel</p>
+              <p className="font-bebas text-2xl text-amber-400 uppercase tracking-wider leading-none">SmartCity</p>
+              <p className="text-[9px] text-emerald-400 font-mono font-bold uppercase tracking-[0.2em] mt-1">Club Governance</p>
             </div>
           </div>
-          <button className="md:hidden text-emerald-400 hover:text-white" onClick={() => setSidebarOpen(false)}>
+          <button className="md:hidden text-emerald-400 hover:text-white p-1 rounded-lg" onClick={() => setSidebarOpen(false)}>
             <X size={20} />
           </button>
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 p-4 space-y-1 overflow-y-auto">
+        <nav className="flex-1 p-4 space-y-1.5 overflow-y-auto custom-scrollbar">
           {navItems.map(({ id, label, icon: Icon, badge }) => (
             <button
               key={id}
               onClick={() => handleNavClick(id)}
-              className={`w-full flex items-center justify-between px-4 py-3 rounded-lg text-sm font-bold uppercase tracking-wide transition-all duration-200
+              className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs font-black uppercase tracking-wider transition-all duration-200 cursor-pointer
                 ${activeSection === id
-                  ? 'bg-amber-500 text-emerald-950 shadow-[0_0_20px_rgba(245,158,11,0.3)]'
-                  : 'text-emerald-200 hover:bg-emerald-800 hover:text-white'
+                  ? 'bg-gradient-to-r from-amber-500 to-amber-400 text-[#071510] shadow-[0_0_15px_rgba(245,158,11,0.25)]'
+                  : 'text-emerald-300 hover:bg-emerald-950/80 hover:text-white'
                 }`}
             >
               <span className="flex items-center gap-3">
-                <Icon size={18} />
+                <Icon size={16} />
                 {label}
               </span>
               {badge && (
-                <span className={`text-xs font-black px-2 py-0.5 rounded-full ${activeSection === id ? 'bg-emerald-950 text-amber-400' : 'bg-amber-500 text-emerald-950'}`}>
+                <span className={`text-[10px] font-black px-2 py-0.5 rounded-full ${activeSection === id ? 'bg-[#071510] text-amber-400' : 'bg-amber-500 text-[#071510]'}`}>
                   {badge}
                 </span>
               )}
@@ -1161,18 +1163,18 @@ export function ClubApprovalsPage() {
         </nav>
 
         {/* Footer info */}
-        <div className="p-4 border-t border-emerald-800">
-          <button
-            onClick={handleLogout}
-            className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-bold uppercase tracking-wide text-red-400 hover:bg-red-900/30 hover:text-white transition-all"
-          >
-            <LogOut size={18} /> Sign Out
-          </button>
+        <div className="p-4 border-t border-emerald-900/60 bg-[#06100a] space-y-2">
           <button
             onClick={() => navigate('/admin')}
-            className="mt-2 w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-bold uppercase tracking-wide text-emerald-400 hover:bg-emerald-800 hover:text-white transition-all"
+            className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-emerald-300 bg-emerald-950/80 hover:bg-emerald-900/80 border border-emerald-800 transition-all cursor-pointer"
           >
-            <ChevronRight size={18} /> Main Admin Panel
+            <ChevronRight size={15} /> Tournament Terminal
+          </button>
+          <button
+            onClick={handleLogout}
+            className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-red-400 hover:bg-red-950/40 border border-transparent hover:border-red-800/40 transition-all cursor-pointer"
+          >
+            <LogOut size={15} /> Sign Out
           </button>
         </div>
       </aside>
@@ -1180,29 +1182,29 @@ export function ClubApprovalsPage() {
       {/* Main Content Area */}
       <main className="flex-1 flex flex-col min-h-screen overflow-x-hidden">
 
-        <header className="sticky top-0 z-20 bg-emerald-950/95 backdrop-blur border-b border-emerald-800 px-4 md:px-8 py-4 flex items-center justify-between gap-4">
+        <header className="sticky top-0 z-20 bg-[#09150e]/95 backdrop-blur-xl border-b border-emerald-800/60 px-4 md:px-8 py-4 flex items-center justify-between gap-4 shadow-xl">
           <div className="flex items-center gap-4">
-            <button onClick={() => setSidebarOpen(true)} className="md:hidden text-emerald-300 hover:text-white p-2 rounded-lg hover:bg-emerald-800 transition-colors">
-              <Menu size={22} />
+            <button onClick={() => setSidebarOpen(true)} className="md:hidden text-emerald-300 hover:text-white p-2 rounded-xl bg-emerald-950 border border-emerald-800 transition-colors">
+              <Menu size={20} />
             </button>
             <div>
-              <h1 className="text-lg font-black text-white uppercase tracking-tight leading-none">
-                {activeSection === 'dashboard' ? 'Dashboard Overview' :
-                 activeSection === 'registrations' ? 'Club Registrations' :
-                 activeSection === 'players' ? 'Player Squad Approval' :
-                 activeSection === 'announcements' ? 'League Announcements' :
-                 activeSection === 'documents' ? 'Resource Documents' : 'Supervision'}
+              <h1 className="text-xl sm:text-2xl font-bebas text-amber-400 uppercase tracking-widest leading-none">
+                {activeSection === 'dashboard' ? 'Governance Dashboard' :
+                 activeSection === 'registrations' ? 'Club Registrations Intake' :
+                 activeSection === 'players' ? 'Player License Approval Desk' :
+                 activeSection === 'announcements' ? 'League Announcements Dispatch' :
+                 activeSection === 'documents' ? 'Resource Library Repository' : 'Supervision'}
               </h1>
-              <p className="text-xs text-emerald-400 font-medium mt-0.5">SmartCity Football League</p>
+              <p className="text-[10px] text-emerald-400 font-mono uppercase tracking-[0.2em] mt-0.5">SmartCity Osun State Football League</p>
             </div>
           </div>
 
           <button
             onClick={fetchData} disabled={loading}
-            className="flex items-center gap-2 text-xs font-bold text-emerald-300 hover:text-white bg-emerald-800/50 hover:bg-emerald-800 px-3 py-2 rounded-lg transition-colors uppercase tracking-wide"
+            className="flex items-center gap-2 text-xs font-bold text-emerald-300 hover:text-white bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-800 px-4 py-2 rounded-xl transition-all uppercase tracking-wider cursor-pointer"
           >
-            <RefreshCw size={14} className={loading ? 'animate-spin' : ''} />
-            <span className="hidden sm:inline">Refresh</span>
+            <RefreshCw size={13} className={loading ? 'animate-spin' : ''} />
+            <span className="hidden sm:inline">Refresh Data</span>
           </button>
         </header>
 
